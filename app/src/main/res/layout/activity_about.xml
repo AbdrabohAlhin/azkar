@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="#FDFBF7"
+    android:layoutDirection="rtl"
+    android:padding="24dp"
+    tools:context=".AboutActivity">
+
+    
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_quran"
+        android:contentDescription="App Logo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="تطبيق نور الذكر"
+        android:textColor="#AA820A"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="#FFFFFF">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="طوّر هذا التطبيق بواسطة الطلاب:"
+                android:textColor="#4A3E23"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1. عبدربه أبو الحن"
+                android:textColor="#222222"
+                android:textSize="15sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="الرقم الجامعي: 2249011008"
+                android:textColor="#666666"
+                android:textSize="14sp"
+                android:layout_marginBottom="12dp" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#EEEEEE"
+                android:layout_marginVertical="8dp"
+                android:layout_marginBottom="12dp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2. محمد اللحام"
+                android:textColor="#222222"
+                android:textSize="15sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="الرقم الجامعي: 2249011024"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="سنة الصنع: 2026م"
+        android:textColor="#AA820A"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+</LinearLayout>
