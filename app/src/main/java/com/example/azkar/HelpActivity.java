@@ -1,0 +1,22 @@
+package com.example.azkar;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class HelpActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_help);
+
+        View root = findViewById(R.id.rootHelp);
+        ThemeHelper.applyBackground(this, root);
+
+        TextView btnBack = findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(v -> finish());
+    }
+}

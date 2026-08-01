@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootFavorites"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_beige"
+    android:layoutDirection="rtl">
+
+    <TextView
+        android:id="@+id/btnBack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="18dp"
+        android:background="@drawable/ic_input_field"
+        android:gravity="center"
+        android:text="‹"
+        android:textColor="@color/brown_dark"
+        android:textSize="28sp"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <TextView
+        android:id="@+id/tvFavoritesTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="المفضلة"
+        android:textColor="@color/brown_dark"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:id="@+id/tvEmptyFavorites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="لا يوجد اقتباسات مفضلة بعد"
+        android:textColor="@color/brown_medium"
+        android:textSize="15sp"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvFavoritesTitle">
+
+        <LinearLayout
+            android:id="@+id/favoritesContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp" />
+
+    </ScrollView>
+
+</RelativeLayout>

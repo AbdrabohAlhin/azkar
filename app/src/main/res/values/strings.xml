@@ -1,3 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">My Application</string>
+    <string name="app_name">أذكار</string>
+
+    <string name="add_photo_optional">إضافة صورة شخصية (اختياري)</string>
+    <string name="name_label">الاسم</string>
+    <string name="name_hint">اكتب اسمك هنا</string>
+    <string name="login_button">دخول</string>
+
+    <string name="nav_today">اليوم</string>
+    <string name="nav_categories">التصنيفات</string>
+    <string name="nav_stats">الإحصائيات</string>
+    <string name="nav_settings">الإعدادات</string>
+
+    <string name="please_enter_name">من فضلك اكتب اسمك أولاً</string>
+    <string name="copied_to_clipboard">تم نسخ الاقتباس</string>
+    <string name="added_to_favorites">تمت الإضافة للمفضلة</string>
+    <string name="removed_from_favorites">تمت الإزالة من المفضلة</string>
+    <string name="share_via">مشاركة الاقتباس عبر</string>
+
+    <string name="font_small">صغير</string>
+    <string name="font_medium">متوسط</string>
+    <string name="font_large">كبير</string>
 </resources>

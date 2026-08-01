@@ -7,10 +7,19 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyApplication">
+        android:theme="@style/Theme.MyApplication"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        <activity
+            android:name=".FavoritesActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".header_user"
+            android:exported="false" />
 
         <activity
             android:name=".SplashActivity"
@@ -21,6 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="false" />
@@ -28,10 +38,20 @@
             android:name=".AzkarActivity"
             android:exported="false" />
         <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+        <activity
             android:name=".AzkarCategoriesActivity"
             android:exported="false" />
         <activity
+            android:name=".QuoteDetailActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".AboutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HelpActivity"
             android:exported="false" />
 
     </application>

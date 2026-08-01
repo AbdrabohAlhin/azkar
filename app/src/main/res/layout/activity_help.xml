@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_beige"
+    android:layoutDirection="rtl"
+    android:id="@+id/rootHelp">
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="18dp"
+        android:background="@drawable/ic_input_field"
+        android:gravity="center"
+        android:text="‹"
+        android:textColor="@color/brown_dark"
+        android:textSize="28sp"
+        android:padding="0dp" />
+
+    <TextView
+        android:id="@+id/tvHelpTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="المساعدة والتعليمات"
+        android:textColor="@color/brown_dark"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvHelpTitle"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_card"
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:layout_marginBottom="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="كيفية استخدام التطبيق"
+                android:textColor="@color/brown_dark"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="يمكنك اختيار التصنيف المناسب، ثم قراءة الاقتباسات وحفظ ما يعجبك في المفضلة."
+                android:textColor="@color/brown_medium"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_card"
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:layout_marginBottom="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="تغيير حجم الخط"
+                android:textColor="@color/brown_dark"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="اذهب إلى الإعدادات واختر حجم الخط المناسب لك."
+                android:textColor="@color/brown_medium"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_card"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="الأسئلة الشائعة"
+                android:textColor="@color/brown_dark"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="كيف أضيف اقتباس إلى المفضلة؟&#10;اضغط على زر القلب في شاشة الاقتباس."
+                android:textColor="@color/brown_medium"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
