@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_today"
+        android:icon="@drawable/ic_trending"
+        android:title="اليوم"/>
+
+    <item
+        android:id="@+id/nav_azkar"
+        android:icon="@drawable/ic_quran"
+        android:title="الأذكار"/>
+
+    <item
+        android:id="@+id/nav_categories"
+        android:icon="@drawable/ic_card"
+        android:title="التصنيفات"/>
+
+    <item
+        android:id="@+id/nav_stats"
+        android:icon="@drawable/ic_favorite"
+        android:title="الإحصائيات"/>
+
+    <item
+        android:id="@+id/nav_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="الإعدادات"/>
+
+</menu>
