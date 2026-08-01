@@ -7,21 +7,24 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 public class CategoriesFragment extends Fragment {
 
     private static final String PREFS_NAME = "azkar_prefs";
     private static final String KEY_FAVORITES = "favorite_quotes";
 
-    private TextView tvFavoritesCount;
+    private ListView lvCategories;
+     CategoryAdapter adapter;
+    private List<Category> categoryList;
 
     @Nullable
     @Override
@@ -35,44 +38,49 @@ public class CategoriesFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         ThemeHelper.applyBackground(requireContext(), view);
-        setupHeader(view);
 
-        tvFavoritesCount = view.findViewById(R.id.tvFavoritesCount);
-        updateFavoritesCount();
+        lvCategories = view.findViewById(R.id.lvCategories);
 
-        view.findViewById(R.id.layoutMotivation).setOnClickListener(v -> openCategory("تحفيزي"));
-        view.findViewById(R.id.layoutSuccess).setOnClickListener(v -> openCategory("نجاح"));
-        view.findViewById(R.id.layoutLiterature).setOnClickListener(v -> openCategory("أدب"));
-        view.findViewById(R.id.layoutWisdom).setOnClickListener(v -> openCategory("حكم"));
-        view.findViewById(R.id.layoutFavorites).setOnClickListener(v ->
-                startActivity(new Intent(requireContext(), FavoritesActivity.class))
-        );
+        buildCategoryList();
+        adapter = new CategoryAdapter(requireContext(), categoryList);
+        lvCategories.setAdapter(adapter);
+
+        lvCategories.setOnItemClickListener((parent, itemView, position, id) -> {
+            Category selected = categoryList.get(position);
+
+            if (selected.isFavorites()) {
+                startActivity(new Intent(requireContext(), FavoritesActivity.class));
+            } else if (getActivity() instanceof MainActivity) {
+                ((MainActivity) getActivity()).openQuoteDetail(selected.getName());
+            }
+        });
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        updateFavoritesCount();
+        buildCategoryList();
+        adapter.notifyDataSetChanged();
     }
 
-    private void setupHeader(View view) {
-        ImageView ivHeaderAvatar = view.findViewById(R.id.ivHeaderAvatar);
-        TextView tvHeaderGreeting = view.findViewById(R.id.tvHeaderGreeting);
+    private void buildCategoryList() {
+        int favoritesCount = getFavoritesCount();
 
-        String name = UserSession.getUserName(requireContext());
-        tvHeaderGreeting.setText("السلام عليكم يا " + name);
-        AvatarHelper.loadUserAvatar(requireContext(), ivHeaderAvatar);
-    }
-
-    private void updateFavoritesCount() {
-        SharedPreferences prefs = requireActivity().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        int count = prefs.getStringSet(KEY_FAVORITES, new HashSet<>()).size();
-        tvFavoritesCount.setText(count + " اقتباس محفوظ");
-    }
-
-    private void openCategory(String categoryName) {
-        if (getActivity() instanceof MainActivity) {
-            ((MainActivity) getActivity()).openQuoteDetail(categoryName);
+        if (categoryList == null) {
+            categoryList = new ArrayList<>();
+        } else {
+            categoryList.clear();
         }
+
+        categoryList.add(new Category("تحفيزي", "٤٢ اقتباس", false));
+        categoryList.add(new Category("نجاح", "٣٠ اقتباس", false));
+        categoryList.add(new Category("أدب", "٥٥ اقتباس", false));
+        categoryList.add(new Category("حكم", "٣٨ اقتباس", false));
+        categoryList.add(new Category("المفضلة", favoritesCount + " اقتباس محفوظ", true));
+    }
+
+    private int getFavoritesCount() {
+        SharedPreferences prefs = requireActivity().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        return prefs.getStringSet(KEY_FAVORITES, new HashSet<>()).size();
     }
 }

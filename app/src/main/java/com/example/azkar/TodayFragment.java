@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -44,7 +43,6 @@ public class TodayFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         ThemeHelper.applyBackground(requireContext(), view);
-        setupHeader(view);
 
         tvQuote = view.findViewById(R.id.tvQuote);
         Button btnNewQuote = view.findViewById(R.id.btnNewQuote);
@@ -58,15 +56,6 @@ public class TodayFragment extends Fragment {
     public void onResume() {
         super.onResume();
         applyFontSize();
-    }
-
-    private void setupHeader(View view) {
-        ImageView ivHeaderAvatar = view.findViewById(R.id.ivHeaderAvatar);
-        TextView tvHeaderGreeting = view.findViewById(R.id.tvHeaderGreeting);
-
-        String name = UserSession.getUserName(requireContext());
-        tvHeaderGreeting.setText("السلام عليكم  " + name);
-        AvatarHelper.loadUserAvatar(requireContext(), ivHeaderAvatar);
     }
 
     private void showRandomQuote() {
