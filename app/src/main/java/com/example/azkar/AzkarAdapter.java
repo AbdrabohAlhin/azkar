@@ -1,6 +1,7 @@
-package com.example.noralzikr;
+package com.example.azkar;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.ArrayList;
+import android.widget.Toast;
 
 public class AzkarAdapter extends BaseAdapter {
     private Context context;
@@ -44,12 +46,42 @@ public class AzkarAdapter extends BaseAdapter {
         tvCounter.setText(String.valueOf(currentDhikr.getTargetCount() - currentDhikr.getCurrentCount()));
 
 
-        tvCounter.setOnClickListener(v -> {
+        convertView.setOnClickListener(v -> {
+
             int current = currentDhikr.getCurrentCount();
+
             if (current < currentDhikr.getTargetCount()) {
+
                 currentDhikr.setCurrentCount(current + 1);
-                notifyDataSetChanged();
+
+                int remaining = currentDhikr.getTargetCount() - currentDhikr.getCurrentCount();
+
+                if (remaining == 0) {
+                    tvCounter.setText("✓");
+                    tvCounter.setBackgroundTintList(
+                            android.content.res.ColorStateList.valueOf(
+                                    android.graphics.Color.parseColor("#4CAF50")));
+
+                    SharedPreferences prefs = context.getSharedPreferences("achievements", Context.MODE_PRIVATE);
+
+                    if (!prefs.getBoolean("first_dhikr", false)) {
+
+                        prefs.edit().putBoolean("first_dhikr", true).apply();
+
+                        new android.os.Handler(android.os.Looper.getMainLooper()).post(() -> {
+                            android.widget.Toast.makeText(
+                                    context,
+                                    "🏆 إنجاز جديد!\nلقد أكملت أول ذكر.",
+                                    android.widget.Toast.LENGTH_LONG
+                            ).show();
+                        });
+                    }
+
+                } else {
+                    tvCounter.setText(String.valueOf(remaining));
+                }
             }
+
         });
 
 

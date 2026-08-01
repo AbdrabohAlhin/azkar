@@ -1,4 +1,4 @@
-package com.example.noralzikr;
+package com.example.azkar;
 
 import android.content.Intent;
 import android.os.Bundle;

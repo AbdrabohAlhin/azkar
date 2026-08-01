@@ -46,8 +46,12 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         prefs.edit().putString(KEY_USER_NAME, name).apply();
 
+        SharedPreferences achievementPrefs = getSharedPreferences("achievements", MODE_PRIVATE);
+        achievementPrefs.edit().putBoolean("login", true).apply();
+
         goToMain();
     }
+
 
     private void goToMain() {
         startActivity(new Intent(this, MainActivity.class));

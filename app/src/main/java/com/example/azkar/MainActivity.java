@@ -1,59 +1,70 @@
 package com.example.azkar;
 
-import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import android.content.Intent;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView navToday, navCategories, navStats, navSettings;
+    BottomNavigationView bottomNavigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        navToday = findViewById(R.id.navToday);
-        navCategories = findViewById(R.id.navCategories);
-        navStats = findViewById(R.id.navStats);
-        navSettings = findViewById(R.id.navSettings);
+        bottomNavigation = findViewById(R.id.bottomNavigation);
 
-        navToday.setOnClickListener(v -> selectTab(navToday, new TodayFragment()));
-        navCategories.setOnClickListener(v -> selectTab(navCategories, new CategoriesFragment()));
-        navStats.setOnClickListener(v -> selectTab(navStats, new StatsFragment()));
-        navSettings.setOnClickListener(v -> selectTab(navSettings, new SettingsFragment()));
+        // الصفحة الافتراضية
+        loadFragment(new TodayFragment());
 
-        if (savedInstanceState == null) {
-            selectTab(navToday, new TodayFragment());
-        }
+        bottomNavigation.setOnItemSelectedListener(item -> {
+
+            Fragment fragment = null;
+
+            int id = item.getItemId();
+
+            if (id == R.id.nav_today) {
+                fragment = new TodayFragment();
+
+            } else if (id == R.id.nav_azkar) {
+                fragment = new AzkarFragment();
+
+            } else if (id == R.id.nav_categories) {
+                fragment = new CategoriesFragment();
+
+            } else if (id == R.id.nav_stats) {
+                fragment = new StatsFragment();
+
+            } else if (id == R.id.nav_settings) {
+                fragment = new SettingsFragment();
+            }
+            if (fragment != null) {
+                loadFragment(fragment);
+                return true;
+            }
+
+            return false;
+        });
+
     }
 
-    private void selectTab(TextView selected, Fragment fragment) {
-        navToday.setTextColor(getColor(R.color.brown_medium));
-        navCategories.setTextColor(getColor(R.color.brown_medium));
-        navStats.setTextColor(getColor(R.color.brown_medium));
-        navSettings.setTextColor(getColor(R.color.brown_medium));
-        navToday.setTypeface(null, Typeface.NORMAL);
-        navCategories.setTypeface(null, Typeface.NORMAL);
-        navStats.setTypeface(null, Typeface.NORMAL);
-        navSettings.setTypeface(null, Typeface.NORMAL);
-
-        selected.setTextColor(getColor(R.color.brown_dark));
-        selected.setTypeface(null, Typeface.BOLD);
+    private void loadFragment(Fragment fragment) {
 
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragmentContainer, fragment)
                 .commit();
-    }
 
+    }
     public void openQuoteDetail(String categoryName) {
         Intent intent = new Intent(this, QuoteDetailActivity.class);
         intent.putExtra(QuoteDetailActivity.EXTRA_CATEGORY, categoryName);
         startActivity(intent);
     }
+
 }

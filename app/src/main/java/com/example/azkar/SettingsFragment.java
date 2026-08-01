@@ -11,6 +11,10 @@ import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.Intent;
+import android.widget.LinearLayout;
+import android.content.Intent;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -80,5 +84,32 @@ public class SettingsFragment extends Fragment {
         rowHelp.setOnClickListener(v ->
                 startActivity(new Intent(requireContext(), HelpActivity.class))
         );
+        LinearLayout rowAbout = view.findViewById(R.id.rowAbout);
+
+        rowAbout.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), AboutActivity.class);
+            startActivity(intent);
+        });
+        LinearLayout rowAccount = view.findViewById(R.id.rowAccount);
+
+        rowAccount.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), AccountActivity.class);
+            startActivity(intent);
+        });
+        rowAccount = view.findViewById(R.id.rowAccount);
+        LinearLayout rowAchievements = view.findViewById(R.id.rowAchievements);
+
+        rowAchievements.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), AchievementsActivity.class);
+            startActivity(intent);
+        });
+
+        LinearLayout rowContact = view.findViewById(R.id.rowContact);
+        rowContact.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), ContactUsActivity.class);
+            startActivity(intent);
+        });
     }
+
+
 }

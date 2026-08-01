@@ -99,6 +99,9 @@ public class QuoteDetailActivity extends AppCompatActivity {
             Toast.makeText(this, R.string.added_to_favorites, Toast.LENGTH_SHORT).show();
         }
 
+        SharedPreferences achievementPrefs = getSharedPreferences("achievements", MODE_PRIVATE);
+        achievementPrefs.edit().putBoolean("first_favorite", true).apply();
+
         prefs.edit().putStringSet(KEY_FAVORITES, favorites).apply();
         isFavorite = !isFavorite;
         updateFavoriteIcon();

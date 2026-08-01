@@ -1,4 +1,4 @@
-package com.example.noralzikr;
+package com.example.azkar;
 
 public class Dhikr {
     private int id;

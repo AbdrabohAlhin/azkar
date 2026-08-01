@@ -1,4 +1,4 @@
-package com.example.noralzikr;
+package com.example.azkar;
 
 public class GridItem {
     private String title;

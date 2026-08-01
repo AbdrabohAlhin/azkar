@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="#FDFBF7"
     android:layoutDirection="rtl"
-    tools:context="com.example.noralzikr.AzkarActivity">
+    tools:context=".AzkarActivity">
 
 
     <TextView
