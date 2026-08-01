@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_beige">#E9DEC5</color>
+    <color name="card_beige">#F1E8D4</color>
+    <color name="avatar_circle">#CBB994</color>
+    <color name="avatar_circle_dark">#B7A37E</color>
+    <color name="brown_dark">#5A4A32</color>
+    <color name="brown_medium">#8A7350</color>
+    <color name="brown_button">#8B7040</color>
+    <color name="text_hint">#A6926B</color>
+    <color name="field_border">#D8C9A8</color>
+    <color name="white">#FFFFFF</color>
+</resources>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_beige"
+    android:id="@+id/main"
+    android:layoutDirection="rtl">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="28dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="@drawable/ic_card"
+        android:padding="28dp">
+
+        <FrameLayout
+            android:id="@+id/avatarWrap"
+            android:layout_width="88dp"
+            android:layout_height="88dp"
+            android:layout_marginBottom="10dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/ivAvatar"
+                android:layout_width="88dp"
+                android:layout_height="88dp"
+                android:background="@drawable/ic_avatar_circle"
+                android:scaleType="centerCrop" />
+
+            <FrameLayout
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_gravity="bottom|start"
+                android:background="@drawable/ic_avatar_badge">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="+"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </FrameLayout>
+
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_photo_optional"
+            android:textColor="@color/brown_medium"
+            android:textSize="12sp"
+            android:layout_marginBottom="22dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/name_label"
+            android:textColor="@color/brown_dark"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:layout_marginBottom="6dp" />
+
+        <EditText
+            android:id="@+id/etUserName"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/ic_input_field"
+            android:hint="@string/name_hint"
+            android:textColorHint="@color/text_hint"
+            android:textColor="@color/brown_dark"
+            android:textSize="13sp"
+            android:gravity="end|center_vertical"
+            android:paddingEnd="14dp"
+            android:paddingStart="14dp"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="20dp" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/ic_button_login"
+            android:text="@string/login_button"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+
+</RelativeLayout>
